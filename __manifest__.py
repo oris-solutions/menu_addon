@@ -7,7 +7,6 @@
     'website': 'https://orissolutions.vn',
     'depends': ['web'],
     'data': [
-    
     ],
     'assets': {
         'web.assets_backend': [
