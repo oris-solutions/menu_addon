@@ -1,11 +1,9 @@
-/** @odoo-module **/
 
 import { registry } from '@web/core/registry';
 import { UserMenu } from '@web/webclient/user_menu/user_menu';
 import { patch } from '@web/core/utils/patch';
 import { browser } from '@web/core/browser/browser';
 
-// Xóa mục menu 'documentation'
 patch(UserMenu.prototype, 'custom_menu.menu_modifications', {
     setup() {
         this._super(...arguments);
@@ -19,9 +17,8 @@ patch(UserMenu.prototype, 'custom_menu.menu_modifications', {
     },
 });
 
-// Thay thế mục menu 'documentation'
 function newDocumentationItem(env) {
-    const documentationURL = 'https://docs.orissolutions.vn'; // URL tài liệu mới
+    const documentationURL = 'https://docs.orissolutions.vn'; 
     return {
         type: 'item',
         id: 'documentation',
@@ -34,5 +31,4 @@ function newDocumentationItem(env) {
     };
 }
 
-// Thêm mục menu mới
 registry.category('user_menuitems').add('documentations', newDocumentationItem);
