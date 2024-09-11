@@ -8,12 +8,11 @@ patch(UserMenu.prototype, 'custom_menu.menu_modifications', {
     setup() {
         this._super(...arguments);
         const userMenuRegistry = registry.category('user_menuitems');
-        if (userMenuRegistry.get('documentation')) {
+            userMenuRegistry.get('documentation');
             userMenuRegistry.remove('documentation');
-        }
-        if (userMenuRegistry.get('odoo_account')) {
+            userMenuRegistry.get('odoo_account')
             userMenuRegistry.remove('odoo_account');
-        }
+        
     },
 });
 
