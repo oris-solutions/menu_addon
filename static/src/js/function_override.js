@@ -1,3 +1,4 @@
+/** @odoo-module **/
 
 import { registry } from '@web/core/registry';
 import { UserMenu } from '@web/webclient/user_menu/user_menu';
@@ -8,17 +9,18 @@ patch(UserMenu.prototype, 'custom_menu.menu_modifications', {
     setup() {
         this._super(...arguments);
         const userMenuRegistry = registry.category('user_menuitems');
-        if (userMenuRegistry.get('documentation')) {
+        userMenuRegistry.get('documentation');
             userMenuRegistry.remove('documentation');
-        }
-        if (userMenuRegistry.get('odoo_account')) {
+        
+        userMenuRegistry.get('odoo_account') ;
             userMenuRegistry.remove('odoo_account');
-        }
+        
     },
 });
 
+
 function newDocumentationItem(env) {
-    const documentationURL = 'https://docs.orissolutions.vn'; // URL tài liệu mới
+    const documentationURL = 'https://docs.orissolutions.vn'; 
     return {
         type: 'item',
         id: 'documentation',
@@ -30,5 +32,6 @@ function newDocumentationItem(env) {
         sequence: 10,
     };
 }
+
 
 registry.category('user_menuitems').add('documentations', newDocumentationItem);
