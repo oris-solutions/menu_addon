@@ -27,7 +27,7 @@ function newDocumentationItem(env) {
         id: 'documentation',
         description: env._t('Documentation'),
         callback: () => {
-            browser.open('https://doc.orissolutions.vn', '_blank');
+            browser.open('https://docs.orissolutions.vn', '_blank');
         },
         sequence: 10,
     };
