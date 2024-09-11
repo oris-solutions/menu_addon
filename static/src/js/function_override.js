@@ -17,14 +17,12 @@ patch(UserMenu.prototype, 'custom_menu.menu_modifications', {
 });
 
 function newDocumentationItem(env) {
-    const documentationURL = 'https://docs.orissolutions.vn'; 
     return {
         type: 'item',
         id: 'documentation',
         description: env._t('Documentation'),
-        href: documentationURL,
         callback: () => {
-            browser.open(documentationURL, '_blank');
+            browser.open('https://docs.orissolutions.vn', '_blank');
         },
         sequence: 10,
     };
