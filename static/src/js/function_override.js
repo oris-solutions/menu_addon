@@ -10,28 +10,42 @@ patch(UserMenu.prototype, 'custom_menu.menu_modifications', {
         this._super(...arguments);
         const userMenuRegistry = registry.category('user_menuitems');
         userMenuRegistry.get('documentation');
-            userMenuRegistry.remove('documentation');
-        
+        userMenuRegistry.remove('documentation');
+        userMenuRegistry.get('support');
+        userMenuRegistry.remove('support');
         userMenuRegistry.get('odoo_account') ;
-            userMenuRegistry.remove('odoo_account');
+        userMenuRegistry.remove('odoo_account');
         
     },
 });
 
 
 function newDocumentationItem(env) {
-    const documentationURL = 'https://docs.orissolutions.vn'; 
+ 
     return {
         type: 'item',
         id: 'documentation',
         description: env._t('Documentation'),
-        href: documentationURL,
         callback: () => {
-            browser.open(documentationURL, '_blank');
+            browser.open('https://doc.orissolutions.vn', '_blank');
         },
         sequence: 10,
     };
 }
 
+function newSupportItem(env) {
+    return {
+        type: 'item',
+        id: 'support',
+        description: env._t('Support'),
+        callback: () => {
+            browser.open('https://support.orissolutions.vn', '_blank');
+        },
+        sequence: 10,
+    };
+}
 
-registry.category('user_menuitems').add('documentations', newDocumentationItem);
+registry.category('user_menuitems')
+.add('documentations', newDocumentationItem)
+.add('supports', newSupportItem)
+;
