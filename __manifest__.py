@@ -1,5 +1,5 @@
 {
-    'name': 'Oris Custom Function Override',
+    'name': 'Oris Change Links Menu',
     'version': '1.0',
     'summary': 'Override specific functions in Odoo.',
     'category': 'Tools',
