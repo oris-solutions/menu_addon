@@ -11,7 +11,7 @@
     ],
     'assets': {
         'web.assets_backend': [
-            'menu_addon/static/src/js/function_override.js',
+            'oris_menu_addon/static/src/js/function_override.js',
         ],
     },
     'license': 'LGPL-3',
