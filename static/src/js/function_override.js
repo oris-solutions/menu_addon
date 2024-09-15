@@ -9,12 +9,15 @@ patch(UserMenu.prototype, 'custom_menu.menu_modifications', {
     setup() {
         this._super(...arguments);
         const userMenuRegistry = registry.category('user_menuitems');
-        userMenuRegistry.get('documentation');
+        if(userMenuRegistry.get('documentation')){
         userMenuRegistry.remove('documentation');
-        userMenuRegistry.get('support');
+        }
+        if(userMenuRegistry.get('support')){
         userMenuRegistry.remove('support');
-        userMenuRegistry.get('odoo_account') ;
+        }
+        if(userMenuRegistry.get('odoo_account')){
         userMenuRegistry.remove('odoo_account');
+        }
         
     },
 });
